@@ -14,6 +14,7 @@ RUN addgroup ${USERNAME} root
 ## install ansible version 2.10.7
 RUN python3 -m pip install ansible==2.10.7 \
     && python3 -m pip install ansible-vault openai
+RUN python3 -m pip install load_dotenv
 
 
 USER ${USERNAME}
