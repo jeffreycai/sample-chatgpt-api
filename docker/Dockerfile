@@ -6,7 +6,7 @@ ARG USERNAME=ec2-user
 ARG GROUPNAME=ec2-user
 
 ### create new users and add to sudoers
-RUN addgroup --gid ${GID} --system ${GROUPNAME}
+RUN addgroup --gid ${GID} --system ${GROUPNAME} || true
 RUN adduser --uid ${UID} --system ${USERNAME} --ingroup ${GROUPNAME}
 RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN addgroup ${USERNAME} root
@@ -35,4 +35,4 @@ USER root
 
 ## others
 RUN mkdir -p /opt
-WORKDIR /opt
+WORKDIR /opt/app
